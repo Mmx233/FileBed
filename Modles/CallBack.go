@@ -1,4 +1,4 @@
-package Public
+package Modles
 
 type body struct {
 	Status string `json:"status"`
