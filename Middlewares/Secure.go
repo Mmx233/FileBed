@@ -40,7 +40,7 @@ func (* Secure)Main(c *gin.Context){
 	}else if IpLogger[c.ClientIP()]>=50{ //每秒超十次封禁Ip
 		IpLogger[c.ClientIP()]=-1 //使被拦截
 		go func(ip string){//截除拦截
-			time.Sleep(time.Hour)//一小时后截除
+			time.Sleep(time.Hour/2)//半小时后截除
 			delete(IpLogger,ip)
 		}(c.ClientIP())
 		c.AsciiJSON(403, Modles.CallErrorWithCode(1))

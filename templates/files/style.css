@@ -1,0 +1,47 @@
+/* CSS Document */
+
+html,body{
+	width: 100%;
+	height: 100%;
+}
+body{
+	background-color: rgba(0,0,0,0.72);
+	margin: 0;
+	color: white;
+	display: flex;
+	justify-content: center;
+	padding: 40px;
+	box-sizing: border-box;
+}
+
+table{
+
+}
+
+td{
+	flex-grow: 1;
+	padding: 10px;
+}
+
+td:last-child{
+	background-color: rgba(45,45,45,1.00);
+	box-sizing: border-box;
+	border: solid 2px black;
+	border-radius: 10px;
+	transition: all .6s;
+}
+td:last-child:hover{
+	background-color: black;
+}
+
+.tt{
+	font-weight: 1000;
+}
+
+svg {
+    width: 2em;
+    height: 2em;
+    vertical-align: -.5em;
+    fill: currentColor;
+    overflow: hidden;
+}
