@@ -16,7 +16,7 @@ func InitRouter(){
 
 	//HTML页渲染
 
-	G.LoadHTMLGlob("templates/*")
+	G.LoadHTMLGlob("templates/*.html")
 	G.Static("/files","templates/files")
 
 	G.GET("/hi/:token",Controllers.Index)//主页-文件列出

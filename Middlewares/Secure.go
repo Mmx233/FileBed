@@ -10,7 +10,7 @@ type Secure struct {}
 var Sec Secure
 
 var (
-	IpLogger map[string]int
+	IpLogger=make(map[string]int)
 	IpChan  = make(chan string)
 )
 
