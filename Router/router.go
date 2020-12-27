@@ -15,7 +15,6 @@ func InitRouter(){
 	G.GET("/download",Controllers.Download)//单文件分发接口
 
 	//HTML页渲染
-
 	G.LoadHTMLGlob("templates/*.html")
 	G.Static("/files","templates/files")
 

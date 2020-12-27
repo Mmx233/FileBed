@@ -4,6 +4,7 @@ import (
 	"Mmx/Modles"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"html/template"
 	"io/ioutil"
 )
 
@@ -44,10 +45,10 @@ func Index(c *gin.Context){
 		return
 	}else{
 		for _,file :=range rd{
-			content=content+"<tr><td>"+file.Name()+"</td><td>"+countSize(file.Size())+"</td><td onclick=\"download(this),"+c.Param("token")+"\">下载</td></tr>"
+			content=content+"<tr><td>"+file.Name()+"</td><td>"+countSize(file.Size())+"</td><td onclick=\"download(this,'"+c.Param("token")+"')\">下载</td></tr>"
 		}
 	}
 	c.HTML(200,"index.html",gin.H{
-		"content":content,
+		"content":template.HTML(content),
 	})
 }

@@ -44,4 +44,5 @@ svg {
     vertical-align: -.5em;
     fill: currentColor;
     overflow: hidden;
+	display:inline;
 }
