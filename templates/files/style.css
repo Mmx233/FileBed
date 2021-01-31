@@ -34,6 +34,10 @@ td:last-child:hover{
 	background-color: black;
 }
 
+td[onclick] {
+	min-width: 56px;
+}
+
 .tt{
 	font-weight: 1000;
 }

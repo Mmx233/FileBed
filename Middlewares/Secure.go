@@ -15,9 +15,9 @@ var (
 )
 
 func (* Secure)InitIpLogger(){
-	for{
-		ip:=<-IpChan
-		if IpLogger[ip]>=0 { //配合封禁
+			for{
+				ip:=<-IpChan
+				if IpLogger[ip]>=0 { //配合封禁
 			IpLogger[ip]++
 			go func(){//仅记录五秒内的访问
 				time.Sleep(time.Second*5)
@@ -33,11 +33,11 @@ func (* Secure)InitIpLogger(){
 func (* Secure)Main(c *gin.Context){
 	//防扫描
 	IpChan <-c.ClientIP()
-	if IpLogger[c.ClientIP()]>5 || IpLogger[c.ClientIP()]<0 { //五秒内最多五次访问
+	if IpLogger[c.ClientIP()]>50 || IpLogger[c.ClientIP()]<0 { //五秒内最多五0次访问
 		c.AsciiJSON(403, Modles.CallErrorWithCode(1))
 		c.Abort()
 		return
-	}else if IpLogger[c.ClientIP()]>=50{ //每秒超十次封禁Ip
+	}else if IpLogger[c.ClientIP()]>=100{ //每秒超2十次封禁Ip
 		IpLogger[c.ClientIP()]=-1 //使被拦截
 		go func(ip string){//截除拦截
 			time.Sleep(time.Hour/2)//半小时后截除

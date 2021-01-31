@@ -17,7 +17,7 @@ func CallSuccess(Code int,Msg string,Data interface{})body{
 
 func CallErrorWithCode(Code int)body{//统一error code
 	codes:=map[int]string{
-		1:"您的访问超出频次限制，请半小时后再试",
+		1:"您的访问超出频次限制，请稍后再试",
 	}
 	return CallError(Code,codes[Code])
 }
